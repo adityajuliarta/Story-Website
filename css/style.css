@@ -1,0 +1,240 @@
+:root {
+  --primary: #e9df86;
+  --bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  background-color: var(--bg);
+  color: #333333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: 1px solid #ced03c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8f9fa;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: #f8f9fa;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: #333333;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Navbar Search Form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #333333;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+/* Main Title Section */
+.main-title {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Meratakan ke tengah secara horizontal */
+  align-items: center; /* Meratakan ke tengah secara vertikal */
+  text-align: center;
+  background-color: var(--bg);
+}
+
+.main-title h1 {
+  font-size: 5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.2rem;
+}
+
+.main-title h1 span {
+  color: var(--primary);
+}
+
+.main-title p {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #666;
+  font-weight: 300;
+}
+
+/* Garis dekorasi di bawah judul */
+.main-title .divider {
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary);
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/* Gabungkan selector yang punya dasar sama untuk menghemat baris kode */
+.hero,
+.hero2,
+.hero3 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Chapter 1 (Konten di Kiri) */
+.hero,
+.hero3 {
+  justify-content: flex-start;
+}
+
+/* Chapter 2 (Konten di Kanan) */
+.hero2 {
+  justify-content: flex-end; /* Ini yang menggeser konten ke kanan */
+}
+
+/* Styling Konten */
+.content,
+.content2,
+.content3 {
+  padding: 1.4rem 7%;
+  max-width: 60rem; /* Pastikan tidak ada spasi di 'rem' */
+  z-index: 10; /* Agar teks berada di atas overlay ::after */
+}
+
+/* Perbaikan untuk Hero 2 dan 3 agar teks rata kanan (opsional) */
+.hero2 .content2 {
+  text-align: right;
+  margin-right: 5%; /* Memberi jarak sedikit dari tepi kanan */
+}
+
+/* Mengatur ukuran font paragraf di semua Hero Section sekaligus */
+.hero .content p,
+.hero2 .content2 p,
+.hero3 .content3 p {
+  font-size: 1.3rem; /* Ubah angka ini sesuai selera kamu */
+  line-height: 1.6; /* Menambah jarak antar baris agar lebih nyaman dibaca saat font besar */
+  font-weight: 200; /* Opsional: buat sedikit lebih tebal jika perlu */
+  text-align: justify;
+}
+
+.hero .content h1 {
+  margin-top: 8rem; /* Memberikan ruang di atas tulisan Chapter */
+}
+
+/* Sub-Chapter Styling */
+.sub-chapter {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333333;
+  margin-top: 0.3rem; /* Pulls it slightly closer to the Chapter title */
+  margin-bottom: 1.5rem; /* Gives breathing room before the paragraph starts */
+  font-style: italic;
+}
+
+/* Ensure the sub-chapter aligns to the right in Chapter 2 */
+.hero2 .content2 .sub-chapter {
+  text-align: right;
+}
+
+/* Gambar di Halaman Judul Utama */
+.main-title img {
+  max-width: 300px; /* Atur lebar gambar, misal 300px atau 40% */
+  height: auto; /* Menjaga proporsi gambar */
+  margin-bottom: 0.5rem; /* Memberi jarak ke judul h1 */
+  opacity: 0.9; /* Sedikit transparansi agar menyatu */
+}
+
+/* Pastikan container-nya juga ikut tergeser agar teks tidak tertutup navbar fixed */
+.main-title .title-content {
+  margin-top: 5rem; /* Menurunkan konten agar pas di bawah navbar fixed kamu */
+}
